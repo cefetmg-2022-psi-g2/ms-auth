@@ -1,0 +1,8 @@
+# db
+/data
+
+# npm install
+/node_modules
+
+# env settings
+.env
