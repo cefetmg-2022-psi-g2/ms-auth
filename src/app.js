@@ -14,7 +14,7 @@ app.use((req,res,next)=>{
 // Database init and config
 const path = require('path')
 const dbHelper = require('framework');
-dbHelper.init(path.resolve(__dirname, "../data/users.sqlite"))
+dbHelper.init(path.resolve(__dirname, process.env.DB_PATH));
 
 // Routes
 const auth = require('./controller/auth')
