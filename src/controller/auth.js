@@ -77,7 +77,7 @@ router.post("/signup", async (req, res) => {
 });
 
 router.post("/validate", (req, res) => {
-    const token = req.body.token;
+    const token = req.body.token || req.query.token || req.headers['x-access-token'];
     if (token) {
         try {
             const decoded = authUtils.decodeJwt(token);
@@ -90,11 +90,9 @@ router.post("/validate", (req, res) => {
                     res.status(401).send("Invalid token");
                 }
             }).catch((err) => {
-                console.log(err);
                 res.status(500).send("Internal Server Error");
             });
         } catch (err) {
-            console.log(err);
             res.status(401).send("Invalid token");
         }
     } else {
