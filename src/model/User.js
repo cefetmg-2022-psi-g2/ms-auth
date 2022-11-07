@@ -13,9 +13,9 @@ const User = {
                     numPedidos: 0,
                 }
             }
-            throw new Error('Invalid profile data');
+            throw new Error('Invalid user data');
         } else {
-            throw new Error('Invalid profile data');
+            throw new Error('Invalid user data');
         }
     },
     validateUser: (user) => {
