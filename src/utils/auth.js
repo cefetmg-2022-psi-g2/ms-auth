@@ -16,6 +16,8 @@ const authUtils = {
                 }).catch((err) => {
                     reject(err);
                 })
+            }else{
+                resolve(false);
             } 
             }).catch((err) => { 
                reject(err);

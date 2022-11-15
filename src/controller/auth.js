@@ -12,7 +12,7 @@ router.post("/login", (req, res) => {
   const { password, username } = req.body;
   if (username && password) {
     if (
-      validator.isAlphanumeric(username, ["pt-BR"]) &&
+      validator.isAlphanumeric(username, 'pt-BR', {ignore: "_"}) &&
       password.length > 6 &&
       password.length < 32
     ) {
@@ -31,9 +31,7 @@ router.post("/login", (req, res) => {
               console.log(err);
               return;
             }
-          }
-          // If the login is not successful, the user is informed that the username or password is incorrect
-          res.status(401).send("Wrong username or password");
+          }else{res.status(401).send("Wrong username or password");}
         })
         .catch((err) => {
           res.status(500).send("Internal Server Error");
